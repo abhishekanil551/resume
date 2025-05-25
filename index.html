@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhishek Anil - MERN Stack Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+            font-size: 14px;
+        }
+
+        .resume-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 297mm;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #2c3e50;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .header .title {
+            font-size: 1.3em;
+            color: #3498db;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            font-size: 0.95em;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #555;
+        }
+
+        .contact-item .icon {
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #bdc3c7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Professional Summary */
+        .summary {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+            font-style: italic;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #e74c3c;
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #3498db;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        /* Education Section */
+        .education-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 3px solid #27ae60;
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .degree {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .year {
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+
+        .institution {
+            color: #555;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+
+        .education-details {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* Projects Section */
+        .project-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 3px solid #9b59b6;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .project-name {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .project-tech {
+            color: #7f8c8d;
+            font-size: 0.85em;
+            font-style: italic;
+        }
+
+        .project-description {
+            color: #555;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-link {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Certifications */
+        .cert-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            border-left: 3px solid #f39c12;
+        }
+
+        .cert-name {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .cert-issuer {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+
+        /* Languages */
+        .languages-list {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .language-item {
+            background: #ecf0f1;
+            padding: 8px 15px;
+            border-radius: 20px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                font-size: 12px;
+            }
+            
+            .resume-container {
+                box-shadow: none;
+                max-width: none;
+                margin: 0;
+                padding: 20px;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+                margin-bottom: 20px;
+            }
+
+            .header h1 {
+                font-size: 2.2em;
+            }
+
+            .contact-info {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .resume-container {
+                padding: 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .education-header,
+            .project-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>Abhishek Anil</h1>
+            <div class="title">MERN Stack Developer</div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="icon">📱</span>
+                    <span>+91 9061236839</span>
+                </div>
+                <div class="contact-item">
+                    <span class="icon">✉️</span>
+                    <span>abhishekanil551@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span class="icon">💼</span>
+                    <span>https://github.com/abhishekanil551</span>
+                </div>
+                <div class="contact-item">
+                    <span class="icon">🔗</span>
+                    <span>github.com/abhishekanil</span>
+                </div>
+                <div class="contact-item">
+                    <span class="icon">📍</span>
+                    <span>Kottayam, Kerala</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Summary -->
+        <div class="section">
+            <h2>Professional Summary</h2>
+            <div class="summary">
+                Passionate MERN Stack Developer with strong foundation in modern web technologies including MongoDB, Node.js, JavaScript, and responsive design frameworks. Currently pursuing Bachelor of Computer Engineering with hands-on experience in full-stack development. Seeking opportunities to contribute to innovative web applications and grow expertise in scalable software solutions.
+            </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="section">
+            <h2>Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Frontend Technologies</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Bootstrap 5</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend & Database</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Express.js</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Frameworks</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Responsive Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects -->
+<div class="section">
+    <h2>Projects</h2>
+  
+    <div class="project-item">
+      <div class="project-header">
+        <div class="project-name">FitBoy - Game E-Commerce Platform</div>
+        <div class="project-tech">MERN Stack</div>
+      </div>
+      <div class="project-description">
+        Currently developing a full-stack platform for selling games online. Features include user authentication, product filtering, offer management, and image cropping with CropperJS. Integrated Cloudinary for image uploads and implemented session-based OTP verification with NodeMailer. Includes a full admin dashboard for managing users, games, and promotions.
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/abhishekanil551/FitBoy" class="project-link">📁 GitHub</a>
+      </div>
+    </div>
+  
+    <div class="project-item">
+      <div class="project-header">
+        <div class="project-name">Say No To Drugs - Awareness Website</div>
+        <div class="project-tech">HTML, CSS, JavaScript, Bootstrap</div>
+      </div>
+      <div class="project-description">
+        Created a responsive and interactive website promoting anti-drug awareness using pure frontend technologies. Includes informative sections, poster visuals, and animations.
+      </div>
+      <div class="project-links">
+        <a href="https://abhishekanil551.github.io/SayNoToDrugs/" class="project-link">🔗 Live Demo</a>
+        <a href="https://github.com/abhishekanil551/SayNoToDrugs" class="project-link">📁 GitHub</a>
+      </div>
+    </div>
+  
+    <div class="project-item">
+      <div class="project-header">
+        <div class="project-name">Portfolio Website</div>
+        <div class="project-tech">HTML, CSS, JavaScript, Bootstrap</div>
+      </div>
+      <div class="project-description">
+        Responsive personal portfolio site showcasing projects, skills, and resume. Integrated smooth scrolling, contact form, and animated sections for better UX.
+      </div>
+      <div class="project-links">
+        <a href="https://aabhishekanil.github.io/portfolioo/" class="project-link">🔗 Live Demo</a>
+        <a href="https://github.com/aabhishekanil/portfolioo" class="project-link">📁 GitHub</a>
+      </div>
+    </div>
+  
+    <!-- Additional Clone Repositories -->
+    <div class="project-item">
+      <div class="project-header">
+        <div class="project-name">Starbucks Landing Page Clone</div>
+        <div class="project-tech">HTML, CSS, Bootstrap</div>
+      </div>
+      <div class="project-description">
+        A static clone of the Starbucks homepage made using pure HTML and CSS. Focused on layout, fonts, and responsive design principles.
+      </div>
+      <div class="project-links">
+        <a href="https://aabhishekanil.github.io/starbucks/" class="project-link">🔗 Live Demo</a>
+        <a href="https://github.com/aabhishekanil/starbucks" class="project-link">📁 GitHub</a>
+      </div>
+    </div>
+  
+    <div class="project-item">
+      <div class="project-header">
+        <div class="project-name">Mini Militia Clone</div>
+        <div class="project-tech">HTML, CSS</div>
+      </div>
+      <div class="project-description">
+
+        A basic replica of the Mini Militia UI made with frontend technologies. Designed for practice in animation and layout structuring.
+      </div>
+      <div class="project-links">
+        <a href="https://aabhishekanil.github.io/mini-militia-clone/" class="project-link">🔗 Live Demo</a>
+        <a href="https://github.com/aabhishekanil/mini-militia-clone" class="project-link">📁 GitHub</a>
+      </div>
+    </div>
+  
+    <div class="project-item">
+      <div class="project-header">
+        <div class="project-name">BGMI Landing Page Clone</div>
+        <div class="project-tech">HTML, CSS</div>
+      </div>
+      <div class="project-description">
+        A responsive landing page clone for BGMI. Practiced layout design and dynamic effects with JavaScript for interactive elements.
+      </div>
+      <div class="project-links">
+        <a href="https://aabhishekanil.github.io/bgmiclone.github/" class="project-link">🔗 Live Demo</a>
+
+        <a href="https://github.com/aabhishekanil/bgmiclone.github" class="project-link">📁 GitHub</a>
+      </div>
+    </div>
+  
+  </div>
+  
+          
+
+        <!-- Education -->
+        <div class="section">
+            <h2>Education</h2>
+
+
+            <div class="education-item">
+                <div class="education-header">
+                  <div>
+                    <div class="degree">Higher Secondary Education (Plus Two)</div>
+                    <div class="institution">Government of Kerala – Board of Higher Secondary Examinations</div>
+                  </div>
+                  <div class="year">March 2024</div>
+                </div>
+                <div class="education-details">
+                  <strong>Stream:</strong> Four Wheeler Service Technician <br/>
+                  <strong>Subjects:</strong> English, Entrepreneurship Development, Four Wheeler Service Technician, Physics, Chemistry, Mathematics <br/>
+                  <strong>Date of Birth:</strong> 13/07/2006
+                </div>
+              </div>
+              
+
+
+         <!-- Languages -->
+        <div class="section">
+            <h2>Languages</h2>
+            <div class="languages-list">
+                <div class="language-item">
+                    <strong>English:</strong> Beginner (Actively improving)
+                </div>
+                <div class="language-item">
+                    <strong>Malayalam:</strong> Native proficiency
+                </div>
+            </div>
+        </div>
+
+    <script>
+        // Print functionality
+        function printResume() {
+            window.print();
+        }
+
+        // Keyboard shortcut for printing
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'p') {
+                e.preventDefault();
+                printResume();
+            }
+        });
+
+        // Add smooth scrolling for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add any interactive features here
+            console.log('Resume loaded successfully');
+        });
+    </script>
+</body>
+</html>
